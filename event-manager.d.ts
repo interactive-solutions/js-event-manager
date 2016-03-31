@@ -40,20 +40,21 @@ declare namespace InteractiveSolutions {
      */
     emit(event:string, args:any):void;
   }
+}
 
-  /**
-   * Event manager
-   */
-  export class EventManager implements EventManagerInterface {
+/**
+ * Event manager
+ */
+declare class EventManager implements InteractiveSolutions.EventManagerInterface {
 
-    removeListener(event:string, id:number):void;
+  removeListener(event:string, id:number):void;
 
-    on(event:string, callback:(...args:any[]) => void):number;
+  on(event:string, callback:(...args:any[]) => void):number;
 
-    once(event:string, callback:(...args:any[]) => void):number;
+  once(event:string, callback:(...args:any[]) => void):number;
 
-    emit(event:string, ...args:any[]):void;
-  }
+  emit(event:string, ...args:any[]):void;
 }
 
 export = InteractiveSolutions;
+
