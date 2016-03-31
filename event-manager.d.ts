@@ -1,4 +1,4 @@
-declare module 'interactivesolutions' {
+declare namespace InteractiveSolutions {
 
   /**
    * Interface for the event manager
@@ -55,3 +55,5 @@ declare module 'interactivesolutions' {
     emit(event:string, ...args:any[]):void;
   }
 }
+
+export = InteractiveSolutions;
