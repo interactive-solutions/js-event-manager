@@ -1,0 +1,8 @@
+{
+  "name": "interactivesolutions-eventmanager",
+  "version": "0.0.1",
+  "main": "event-manager.js",
+  "typescript": {
+    "definition": "eventmanager.d.ts"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "interactivesolutions-event-manager",
+  "main": "event-manager.d.ts",
+  "dependencies": {
+
+  }
+}
