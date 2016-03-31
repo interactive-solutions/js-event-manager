@@ -1,51 +1,49 @@
-declare namespace InteractiveSolutions {
+/**
+ * Interface for the event manager
+ */
+interface EventManagerInterface {
+  
+  /**
+   * Attaches a callback to a given event
+   *
+   * @param event
+   * @param callback
+   *
+   * @return number the id associated with this callback
+   */
+  on(event:string, callback:(...args:any[]) => void):number;
 
   /**
-   * Interface for the event manager
+   * Attaches a callback to the next emit of the given event
+   *
+   * @param event
+   * @param callback
+   *
+   * @return number the id associated with this callback
    */
-  export interface EventManagerInterface {
-    /**
-     * Attaches a callback to a given event
-     *
-     * @param event
-     * @param callback
-     *
-     * @return number the id associated with this callback
-     */
-    on(event:string, callback:(...args:any[]) => void):number;
+  once(event:string, callback:(...args:any[]) => void):number;
 
-    /**
-     * Attaches a callback to the next emit of the given event
-     *
-     * @param event
-     * @param callback
-     *
-     * @return number the id associated with this callback
-     */
-    once(event:string, callback:(...args:any[]) => void):number;
+  /**
+   * Detaches a callback from a given event
+   *
+   * @param event
+   * @param id
+   */
+  removeListener(event:string, id:number):void;
 
-    /**
-     * Detaches a callback from a given event
-     *
-     * @param event
-     * @param id
-     */
-    removeListener(event:string, id:number):void;
-
-    /**
-     * Emits a given event
-     *
-     * @param event
-     * @param args
-     */
-    emit(event:string, args:any):void;
-  }
+  /**
+   * Emits a given event
+   *
+   * @param event
+   * @param args
+   */
+  emit(event:string, args:any):void;
 }
 
 /**
  * Event manager
  */
-declare class EventManager implements InteractiveSolutions.EventManagerInterface {
+declare class EventManager implements EventManagerInterface {
 
   removeListener(event:string, id:number):void;
 
@@ -56,5 +54,4 @@ declare class EventManager implements InteractiveSolutions.EventManagerInterface
   emit(event:string, ...args:any[]):void;
 }
 
-export = InteractiveSolutions;
-
+export = EventManager;
