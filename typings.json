@@ -1,5 +1,5 @@
 {
-  "name": "interactivesolutions-event-manager",
+  "name": "event-manager",
   "main": "event-manager.d.ts",
   "dependencies": {
 
