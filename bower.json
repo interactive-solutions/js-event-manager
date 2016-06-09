@@ -1,6 +1,6 @@
 {
   "name": "event-manager",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "main": "event-manager.js",
   "typescript": {
     "definition": "eventmanager.d.ts"
