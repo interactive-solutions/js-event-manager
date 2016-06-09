@@ -1,7 +1,4 @@
 {
   "name": "event-manager",
-  "main": "event-manager.d.ts",
-  "dependencies": {
-
-  }
+  "main": "event-manager.d.ts"
 }

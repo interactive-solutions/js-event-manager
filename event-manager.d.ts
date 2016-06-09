@@ -1,57 +1,57 @@
-/**
- * Interface for the event manager
- */
-interface EventManagerInterface {
-  
-  /**
-   * Attaches a callback to a given event
-   *
-   * @param event
-   * @param callback
-   *
-   * @return number the id associated with this callback
-   */
-  on(event:string, callback:(...args:any[]) => void):number;
+declare namespace InteractiveSolutions.EventManager {
 
   /**
-   * Attaches a callback to the next emit of the given event
-   *
-   * @param event
-   * @param callback
-   *
-   * @return number the id associated with this callback
+   * Interface for the event manager
    */
-  once(event:string, callback:(...args:any[]) => void):number;
+  interface EventManagerInterface {
+
+    /**
+     * Attaches a callback to a given event
+     *
+     * @param event
+     * @param callback
+     *
+     * @return number the id associated with this callback
+     */
+    attach(event:string, callback:(...args:any[]) => void):number;
+
+    /**
+     * Attaches a callback to the next emit of the given event
+     *
+     * @param event
+     * @param callback
+     *
+     * @return number the id associated with this callback
+     */
+    once(event:string, callback:(...args:any[]) => void):number;
+
+    /**
+     * Detaches a callback from a given event
+     *
+     * @param event
+     * @param id
+     */
+    detach(event:string, id:number):void;
+
+    /**
+     * Emits a given event
+     *
+     * @param event
+     * @param args
+     */
+    emit(event:string, args:any):void;
+  }
 
   /**
-   * Detaches a callback from a given event
-   *
-   * @param event
-   * @param id
+   * Event manager
    */
-  removeListener(event:string, id:number):void;
+  class EventManager implements EventManagerInterface {
+    attach(event:string, callback:(...args:any[]) => void):number;
 
-  /**
-   * Emits a given event
-   *
-   * @param event
-   * @param args
-   */
-  emit(event:string, args:any):void;
+    detach(event:string, id:number):void;
+
+    once(event:string, callback:(...args:any[]) => void):number;
+
+    emit(event:string, ...args:any[]):void;
+  }
 }
-
-/**
- * Event manager
- */
-declare class EventManager implements EventManagerInterface {
-
-  removeListener(event:string, id:number):void;
-
-  on(event:string, callback:(...args:any[]) => void):number;
-
-  once(event:string, callback:(...args:any[]) => void):number;
-
-  emit(event:string, ...args:any[]):void;
-}
-
-export = EventManager;
