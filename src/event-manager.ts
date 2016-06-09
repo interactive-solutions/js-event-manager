@@ -77,7 +77,7 @@ class Callback {
 /**
  * Event manager
  */
-export class EventManager {
+export class EventManager implements EventManagerInterface{
   private counter:number = 0;
   private events:{[key: string]: {[key: number]: Callback}} = {};
 
